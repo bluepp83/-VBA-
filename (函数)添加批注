@@ -1,0 +1,5 @@
+Function Tian加批注(rg As Range) '定义函数名和参数 
+rg.AddComment 
+rg.Comment.Visible = False 
+rg.Comment.Text Text:="CCGAOGE:" & Chr(10) & "中班" 
+End Function 
