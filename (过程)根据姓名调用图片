@@ -1,0 +1,46 @@
+Sub test() 
+ 
+    Dim MyPcName As String 
+     
+    Dim MyFile As Object 
+ 
+    'MsgBox ActiveCell.Text 
+     
+    'MsgBox ActiveCell.Value 
+     
+    'ActiveCell.Offset(rowoffset:=-1, columnoffset:=0).Activate 
+     
+    'ActiveCell.Value = 98 
+     
+    'MyPcName = ActiveSheet.Cells(i, 2).Value & ".jpg" 
+     
+    MyPcName = ActiveCell.Value & ".jpg" 
+     
+    'MsgBox "图片的完整路径是" & ThisWorkbook.Path & "员工照片" & MyPcName 
+     
+    'ActiveSheet.Cells(i + 2, 2).Select '选择要插入图片的单元格作为目标 
+     
+    ActiveCell.Offset(rowoffset:=-1, columnoffset:=0).Activate 
+     
+    Set MyFile = CreateObject("Scripting.FileSystemObject") 
+     
+    '在选定的单元格中插入图片 
+    ActiveSheet.Pictures.Insert(ThisWorkbook.Path & "\员工照片\" & MyPcName).Select 
+     
+    'ActiveSheet.Shapes.AddPicture VPicFile, msoTrue, msoCTrue, re.Left, re.Top, re.Width, re.MergeArea.Height 
+     
+    'Selection.Name = Target.Text 'Picture name 
+     
+    'Selection.Name = MyPcName 
+     
+    Selection.ShapeRange.LockAspectRatio = msoFalse 
+         
+    Selection.ShapeRange.Top = ActiveCell.Top '确定图片上边位置 
+         
+    Selection.ShapeRange.Left = ActiveCell.Left '确定图片左边位置 
+         
+    Selection.ShapeRange.Width = ActiveCell.Width '确定图片宽度为单元格宽度 
+         
+    Selection.ShapeRange.Height = ActiveCell.Height '确定图片高度为单元格高度 
+ 
+End Sub 
