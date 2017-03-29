@@ -1,0 +1,65 @@
+Option Explicit 
+ 
+ 
+Sub 提取所有工作表名称() 
+ 
+ 
+Dim X As Integer 
+ 
+ 
+Dim oRange As Range 
+ 
+ 
+For X = 1 To 15 
+ 
+ 
+Set oRange = Cells(X, 3) 
+    
+oRange = Sheets(X).Name 
+ 
+ 
+oRange.Hyperlinks.Add Anchor:=oRange, Address:="", SubAddress:=Sheets(X).Name & "!A1", TextToDisplay:=Sheets(X).Name 
+        
+Next X 
+        
+For X = 16 To 30 
+ 
+ 
+Set oRange = Cells(X - 15, 6) 
+        
+oRange = Sheets(X).Name 
+
+oRange.Hyperlinks.Add Anchor:=oRange, Address:="", SubAddress:=Sheets(X).Name & "!A1", TextToDisplay:=Sheets(X).Name 
+        
+Next X 
+        
+For X = 31 To 45 
+ 
+ 
+Set oRange = Cells(X - 30, 9) 
+        
+oRange = Sheets(X).Name 
+ 
+ 
+oRange.Hyperlinks.Add Anchor:=oRange, Address:="", SubAddress:=Sheets(X).Name & "!A1", TextToDisplay:=Sheets(X).Name 
+        
+Next X 
+ 
+ 
+For X = 46 To 46 
+ 
+ 
+Set oRange = Cells(X - 45, 12) 
+        
+oRange = Sheets(X).Name 
+ 
+ 
+oRange.Hyperlinks.Add Anchor:=oRange, Address:="", SubAddress:=Sheets(X).Name & "!A1", TextToDisplay:=Sheets(X).Name 
+        
+Next X 
+ 
+ 
+MsgBox "更新完成" 
+ 
+ 
+End Sub 
